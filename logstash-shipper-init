@@ -1,5 +1,5 @@
 #! /bin/sh
-# /etc/init.d/logstash-agent
+# /etc/init.d/logstash-shipper-init
 #
 
 # run always
@@ -8,13 +8,13 @@ service elasticsearch start
 service logstash start
 case "$1" in
   start)
-    echo "Starting logstash-all"
+    echo "Starting logstash-shipper-init"
     service redis-server start
     service elasticsearch start
     service logstash start
     ;;
   stop)
-    echo "Stopping logstash-all"
+    echo "Stopping logstash-shipper-init"
     service logstash stop
     service elasticsearch stop
     service redis-server stop
@@ -30,7 +30,7 @@ case "$1" in
     service redis-server restart
     ;;
   *)
-    echo "Usage: /etc/init.d/logstash-agent-init {start|stop|status|restart}"
+    echo "Usage: /etc/init.d/logstash-shipper-init {start|stop|status|restart}"
     exit 1
     ;;
 esac
