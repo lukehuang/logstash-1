@@ -26,7 +26,7 @@ sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/logstash-
 #making the script executable
 sudo chmod +x /etc/init.d/logstash-shipper-init
 #making it start at boot time
-sudo update-rc.d /etc/init.d/logstash-shipper-init defaults
+sudo update-rc.d logstash-shipper-init defaults
 
 
 
