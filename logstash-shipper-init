@@ -3,9 +3,12 @@
 #
 
 # run always
-service redis-server start
-service elasticsearch start
-service logstash start
+if [ "$1" = "" ]
+then
+  service redis-server start
+  service elasticsearch start
+  service logstash start
+fi
 case "$1" in
   start)
     echo "Starting logstash-shipper-init"
