@@ -24,7 +24,7 @@ sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/sample_in
 #downloading the init script for the server
 sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/logstash-shipper-init -O /etc/init.d/logstash-shipper-init
 #making the script executable
-sudo chmod +x ./etc/init.d/logstash-shipper-init
+sudo chmod +x /etc/init.d/logstash-shipper-init
 #making it start at boot time
 sudo update-rc.d /etc/init.d/logstash-shipper-init defaults
 
