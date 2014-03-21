@@ -1,60 +1,38 @@
 #! /bin/sh
+# /etc/init.d/logstash-agent
+#
 
-. /lib/lsb/init-functions
-
-name="logstash-agent"
-logstash_bin="/opt/logstash/logstash.jar"
-logstash_conf="/opt/logstash/sample_shipper.conf"
-logstash_log="/var/log/logstash/agent.log"
-java_bin="/usr/bin/java"
-pid_file="/var/run/$name.pid"
-cwd=`pwd`
-
-start () {
-        command="${java_bin} -- -jar ${logstash_bin} -- agent -f $logstash_conf -l ${logstash_log}" 
-
-        log_daemon_msg "Starting $name"
-        if start-stop-daemon --start --quiet --oknodo --pidfile "$pid_file" -b -m -N 19 --exec $command; then
-                log_end_msg 0
-        else
-                log_end_msg 1
-        fi
-}
-
-stop () {
-        log_daemon_msg "Stopping $name"
-        start-stop-daemon --stop --quiet --oknodo --pidfile "$pid_file"
-}
-
-status () {
-        status_of_proc -p $pid_file "" "$name"
-}
-
-case $1 in
-        start)
-                if status; then exit 0; fi
-                start
-                ;;
-        stop)
-                stop
-                ;;
-        reload)
-                stop
-                sleep 2
-                start
-                ;;
-        restart)
-                stop
-                sleep 2
-                start
-                ;;
-        status)
-                status && exit 0 || exit $?
-                ;;
-        *)
-                echo "Usage: $0 {start|stop|restart|reload|status}"
-                exit 1
-                ;;
+# run always
+service redis-server start
+service elasticsearch start
+service logstash start
+case "$1" in
+  start)
+    echo "Starting logstash-all"
+    service redis-server start
+    service elasticsearch start
+    service logstash start
+    ;;
+  stop)
+    echo "Stopping logstash-all"
+    service logstash stop
+    service elasticsearch stop
+    service redis-server stop
+    ;;
+  status)
+    service logstash status
+    service elasticsearch status
+    service redis-server status
+    ;;
+  restart)
+    service logstash restart
+    service elasticsearch restart
+    service redis-server restart
+    ;;
+  *)
+    echo "Usage: /etc/init.d/logstash-agent-init {start|stop|status|restart}"
+    exit 1
+    ;;
 esac
 
 exit 0
