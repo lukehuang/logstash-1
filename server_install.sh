@@ -10,17 +10,18 @@ sudo apt-get install logstash
 sudo apt-get install redis-server
 #changing the redis-server default IP binding
 sudo sed -i 's/127.0.0.1/10.0.3.153/g' /etc/redis/redis.conf
+#restarting the redis-server after the configuration has been changed
+sudo service redis-server restart
 #downloading the deb file for elasticsearch
 wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.0.deb
 #set the environment varialble last word could be i386 or amd64
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
 #installing of the deb file
 sudo dpkg -i elasticsearch-1.0.0.deb
-#configuring the elasticsearch configuration file
-echo "cluster.name: logstash" >> /etc/elasticsearch/elasticsearch.yml
-echo 'node.name: "smoker"' >> /etc/elasticsearch/elasticsearch.yml
 #downloading of configuration file for the indexer
-sudo wget https://github.com/meadhikari/logstash/blob/master/sample_indexer.conf -O /etc/logstash/conf.d/central.conf
+sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/sample_indexer.conf -O /etc/logstash/conf.d/central.conf
+
+
 
 
 
