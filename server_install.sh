@@ -18,6 +18,10 @@ wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearc
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
 #installing of the deb file
 sudo dpkg -i elasticsearch-1.0.0.deb
+#configure elasticsearch yaml file
+echo 'cluster.name: logstash' | sudo tee  -a /etc/elasticsearch/elasticsearch.yml 
+echo 'node.name: "smoker"' | sudo tee  -a /etc/elasticsearch/elasticsearch.yml 
+
 #downloading of configuration file for the indexer
 sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/sample_indexer.conf -O /etc/logstash/conf.d/central.conf
 
