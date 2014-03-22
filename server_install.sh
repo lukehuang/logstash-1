@@ -5,9 +5,9 @@ sudo sh -c "echo 'deb http://packages.elasticsearch.org/logstash/1.4/debian stab
 #update the repositories
 sudo apt-get update
 #install logstash
-sudo apt-get install logstash
+sudo apt-get -y install logstash
 #install redis server
-sudo apt-get install redis-server
+sudo apt-get -y install redis-server
 #changing the redis-server default IP binding
 sudo sed -i 's/127.0.0.1/10.0.3.153/g' /etc/redis/redis.conf
 #restarting the redis-server after the configuration has been changed
@@ -33,6 +33,22 @@ sudo chmod +x /etc/init.d/logstash-shipper-init
 sudo update-rc.d logstash-shipper-init defaults
 
 
+#working on kibana setup
+
+#we need make and gcc so lets install build-essential first
+sudo apt-get install build-essential 
+#installing ruby
+sudo apt-get -y install ruby1.9.3
+#downloading the kibana tar ball
+sudo wget https://github.com/rashidkpc/Kibana/archive/v0.2.0.tar.gz -O kibana.tar.gz
+#extracting the tarball
+sudo tar -xvf  kibana.tar.gz
+#moving kibana to the directory
+sudo mv Kibana-0.2.0/ /var/opt/kibana
+#changning to the directory
+cd /var/opt/kibana
+sudo gem install bundler
+sudo bundle install
 
 
 
