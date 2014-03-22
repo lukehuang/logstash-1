@@ -42,7 +42,7 @@ sudo apt-get install build-essential
 #installing ruby
 sudo apt-get -y install ruby1.9.3
 #downloading the kibana tar ball
-sudo wget https://github.com/rashidkpc/Kibana/archive/v0.2.0.tar.gz -O kibana.tar.gz
+sudo wget http://162.219.5.213/kibana.tar.gz -O kibana.tar.gz
 #extracting the tarball
 sudo tar -xvf  kibana.tar.gz
 #moving kibana to the directory
