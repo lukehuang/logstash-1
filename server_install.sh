@@ -45,6 +45,8 @@ sudo wget https://github.com/rashidkpc/Kibana/archive/v0.2.0.tar.gz -O kibana.ta
 sudo tar -xvf  kibana.tar.gz
 #moving kibana to the directory
 sudo mv Kibana-0.2.0/ /var/opt/kibana
+#creating a temp directory to hold the pid file
+sudo mkdir /var/opt/kibana/tmp
 #configuring kibana to accept incoming request from internet
 sudo sed -i 's/127.0.0.1/0.0.0.0/g' /var/opt/kibana/KibanaConfig.rb
 #changning to the directory
