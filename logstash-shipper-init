@@ -5,16 +5,16 @@
 # run always
 if [ "$1" = "" ]
 then
-  service redis-server start
   service elasticsearch start
+  service redis-server start
   service logstash start
   service kibana start
 fi
 case "$1" in
   start)
     echo "Starting logstash-shipper-init"
-    service redis-server start
     service elasticsearch start
+    service redis-server start
     service logstash start
     service kibana start
     ;;
