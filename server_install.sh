@@ -6,6 +6,8 @@ sudo sh -c "echo 'deb http://packages.elasticsearch.org/logstash/1.4/debian stab
 sudo apt-get update
 #install logstash
 sudo apt-get -y install logstash
+#making the log directory for logstash don't know why this is not automated
+sudo mkdir /var/log/logstash
 #install redis server
 sudo apt-get -y install redis-server
 #changing the redis-server default IP binding
