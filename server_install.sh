@@ -47,10 +47,15 @@ sudo tar -xvf  kibana.tar.gz
 sudo mv Kibana-0.2.0/ /var/opt/kibana
 #changning to the directory
 cd /var/opt/kibana
+#installing ruby gem bundler
 sudo gem install bundler
+#installing
 sudo bundle install
 
 
-
+#init script for kibana
+sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/kibana-init -O /etc/init.d/kibana
+sudo chmod +x /etc/init.d/kibana
+sudo update-rc.d kibana defaults
 
 
