@@ -45,12 +45,15 @@ sudo wget https://github.com/rashidkpc/Kibana/archive/v0.2.0.tar.gz -O kibana.ta
 sudo tar -xvf  kibana.tar.gz
 #moving kibana to the directory
 sudo mv Kibana-0.2.0/ /var/opt/kibana
+#configuring kibana to accept incoming request from internet
+sudo sed -i 's/127.0.0.1/0.0.0.0/g' /var/opt/kibana/KibanaConfig.rb
 #changning to the directory
 cd /var/opt/kibana
 #installing ruby gem bundler
 sudo gem install bundler
 #installing
 sudo bundle install
+
 
 
 #init script for kibana

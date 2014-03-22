@@ -8,6 +8,7 @@ then
   service redis-server start
   service elasticsearch start
   service logstash start
+  service kibana start
 fi
 case "$1" in
   start)
@@ -15,9 +16,11 @@ case "$1" in
     service redis-server start
     service elasticsearch start
     service logstash start
+    service kibana start
     ;;
   stop)
     echo "Stopping logstash-shipper-init"
+    service kibana stop
     service logstash stop
     service elasticsearch stop
     service redis-server stop
@@ -26,11 +29,13 @@ case "$1" in
     service logstash status
     service elasticsearch status
     service redis-server status
+    service kibana stop
     ;;
   restart)
     service logstash restart
     service elasticsearch restart
     service redis-server restart
+    service kibana restart
     ;;
   *)
     echo "Usage: /etc/init.d/logstash-shipper-init {start|stop|status|restart}"
