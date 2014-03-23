@@ -45,7 +45,7 @@ sudo update-rc.d logstash-shipper-init defaults
 
 wget https://download.elasticsearch.org/kibana/kibana/kibana-3.0.0.tar.gz
 tar -xvf kibana-3.0.0.tar.gz
-sudo mv kibana-3.0.0/ /var/www/
+sudo mv kibana-3.0.0/ /var/www/kibana
 
 
 
