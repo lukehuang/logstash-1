@@ -1,5 +1,9 @@
+#lets update first
+sudo apt-get update
 #we need make and gcc so lets install build-essential first
 sudo apt-get install build-essential 
+#installing java and supplying yes to every question
+sudo apt-get -y install openjdk-7-jdk
 #adding of the key of logstash repository
 wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
 #adding of the logstash repository to the source list
@@ -39,30 +43,10 @@ sudo update-rc.d logstash-shipper-init defaults
 
 #working on kibana setup
 
-#installing ruby
-sudo apt-get -y install ruby1.9.3
-#downloading the kibana tar ball
-sudo wget http://162.219.5.213/kibana.tar.gz -O kibana.tar.gz
-#extracting the tarball
-sudo tar -xvf  kibana.tar.gz
-#moving kibana to the directory
-sudo mv Kibana-0.2.0/ /var/opt/kibana
-#creating a temp directory to hold the pid file
-sudo mkdir /var/opt/kibana/tmp
-#configuring kibana to accept incoming request from internet
-sudo sed -i 's/127.0.0.1/0.0.0.0/g' /var/opt/kibana/KibanaConfig.rb
-#changning to the directory
-cd /var/opt/kibana
-#installing ruby gem bundler
-sudo gem install bundler
-#installing
-sudo bundle install
+wget https://download.elasticsearch.org/kibana/kibana/kibana-3.0.0.tar.gz
+tar -xvf kibana-3.0.0.tar.gz
+sudo mv kibana-3.0.0/ /var/www/
 
 
-
-#init script for kibana
-sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/kibana-init -O /etc/init.d/kibana
-sudo chmod +x /etc/init.d/kibana
-sudo update-rc.d kibana defaults
 
 
