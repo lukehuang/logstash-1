@@ -32,9 +32,9 @@ case "$1" in
     service kibana stop
     ;;
   restart)
-    service logstash restart
     service elasticsearch restart
     service redis-server restart
+    service logstash restart
     service kibana restart
     ;;
   *)
