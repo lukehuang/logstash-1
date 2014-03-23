@@ -48,5 +48,8 @@ tar -xvf kibana-3.0.0.tar.gz
 sudo mv kibana-3.0.0/ /var/www/kibana
 
 
-
+#starting the services
+#redis is auto started so we are not using it
+sudo service elasticsearch start
+sudo service logstash start
 
