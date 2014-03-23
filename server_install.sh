@@ -1,3 +1,5 @@
+#we need make and gcc so lets install build-essential first
+sudo apt-get install build-essential 
 #adding of the key of logstash repository
 wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
 #adding of the logstash repository to the source list
@@ -37,8 +39,6 @@ sudo update-rc.d logstash-shipper-init defaults
 
 #working on kibana setup
 
-#we need make and gcc so lets install build-essential first
-sudo apt-get install build-essential 
 #installing ruby
 sudo apt-get -y install ruby1.9.3
 #downloading the kibana tar ball
