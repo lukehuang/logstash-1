@@ -1,0 +1,1 @@
+JETTY_ACCESS  %{IP} \-  \-  \[%{MONTHDAY}\/%{MONTH}\/%{YEAR}\:%{TIME} %{ISO8601_TIMEZONE}] "%{WORD:request} \/ HTTP\/%{NUMBER:http_version}" %{NUMBER:response_code} %{NUMBER:response_time}
