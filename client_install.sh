@@ -21,3 +21,6 @@ sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/sample_sh
 #geodb
 sudo mkdir /opt/geodb/
 sudo wget https://github.com/meadhikari/logstash/raw/master/GeoLiteCity.dat -O /opt/geodb/GeoLiteCity.dat
+
+#jetty log`
+#%{IP} \-  \-  \[%{NUMBER:Day}\/%{MONTH}\/%{YEAR}\:%{TIME} \+0000\] "%{WORD:request} \/ HTTP\/%{NUMBER:http_version}" %{NUMBER:response_code} %{NUMBER:response_time}
