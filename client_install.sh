@@ -16,9 +16,12 @@ sudo apt-get -y install logstash
 sudo mkdir /var/log/logstash
 
 #download the configuration from the github server different for each type of client but here only for the sample is done
-sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/sample_shipper.conf -O /etc/logstash/conf.d/shipper.conf
+sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/shipper.conf -O /etc/logstash/conf.d/shipper.conf
 
 #geodb
 sudo mkdir /opt/geodb/
 sudo wget https://github.com/meadhikari/logstash/raw/master/GeoLiteCity.dat -O /opt/geodb/GeoLiteCity.dat
+
+#add pattern for jetty
+sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/jetty -O /opt/logstash/patterns/jetty
 
