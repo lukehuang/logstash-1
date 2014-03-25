@@ -25,3 +25,4 @@ sudo wget https://github.com/meadhikari/logstash/raw/master/GeoLiteCity.dat -O /
 #add pattern for jetty
 sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/jetty -O /opt/logstash/patterns/jetty
 
+sudo service logstash start
