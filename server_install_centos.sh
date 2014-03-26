@@ -48,8 +48,7 @@ sudo mv kibana-3.0.0/ /var/www/html/kibana
 sudo chown -R apache:apache /var/www/html/kibana
 
 #starting the services
-#redis is auto started so we are not using it
-sudo service redis-server
+sudo service redis-server start
 sudo service elasticsearch start
 sudo service logstash start
 
