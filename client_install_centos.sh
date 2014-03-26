@@ -18,6 +18,6 @@ sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/jetty -O 
 sudo service logstash start
 
 #starting the logstash service at startup
-sudo /sbin/chkconfig --add mysqld
-sudo /sbin/chkconfig mysqld on
+sudo /sbin/chkconfig --add logstash
+sudo /sbin/chkconfig logstash on
 
