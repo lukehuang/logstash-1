@@ -44,11 +44,12 @@ sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/sample_in
 #working on kibana setup
 wget https://download.elasticsearch.org/kibana/kibana/kibana-3.0.0.tar.gz
 tar -xvf kibana-3.0.0.tar.gz
-sudo mv kibana-3.0.0/ /var/www/kibana
-
+sudo mv kibana-3.0.0/ /var/www/html/kibana
+sudo chown -R apache:apache /var/www/html/kibana
 
 #starting the services
 #redis is auto started so we are not using it
+sudo service redis-server
 sudo service elasticsearch start
 sudo service logstash start
 
