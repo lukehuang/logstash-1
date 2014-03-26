@@ -2,6 +2,9 @@
 sudo rpm --import http://packages.elasticsearch.org/GPG-KEY-elasticsearch
 sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/logstash.repo -O /etc/yum.repos.d/logstash.repo
 
+#installing logstash
+sudo yum install logstash
+
 #download the configuration from the github server different for each type of client but here only for the sample is done
 sudo wget https://raw.githubusercontent.com/meadhikari/logstash/master/shipper.conf -O /etc/logstash/conf.d/shipper.conf
 
