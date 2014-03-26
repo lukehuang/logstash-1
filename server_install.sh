@@ -1,7 +1,7 @@
 #lets update first
 sudo apt-get update
 #we need make and gcc so lets install build-essential first
-sudo apt-get install build-essential 
+sudo apt-get -y install build-essential 
 #installing java and supplying yes to every question
 sudo apt-get -y install openjdk-7-jdk
 #adding of the key of logstash repository
